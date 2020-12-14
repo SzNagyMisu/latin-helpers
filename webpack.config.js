@@ -32,7 +32,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './index.js',
+  entry: './src/index.js',
   plugins: [new webpack.ProgressPlugin()],
 
   module: {
