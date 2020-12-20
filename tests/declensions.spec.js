@@ -1,6 +1,7 @@
 import {
   firstDeclension,
   secondDeclension,
+  thirdDeclension,
 } from '@/declensions'
 
 describe('declensions', () => {
@@ -171,6 +172,58 @@ describe('declensions', () => {
           dative: 'pueris',
           ablative: 'pueris',
         },
+      })
+    })
+  })
+
+  describe('thirdDeclension', () => {
+    describe('regular', () => {
+      it('works with -tio, -tionis nouns', () => {
+        const nounObject = {
+          dictionaryForm: [ 'ratio', 'onis', 'f.' ]
+        }
+        const declinated = thirdDeclension(nounObject)
+
+        expect(declinated).toEqual({
+          singular: {
+            nominative: 'ratio',
+            accusative: 'rationem',
+            genitive: 'rationis',
+            dative: 'rationi',
+            ablative: 'ratione',
+          },
+          plural: {
+            nominative: 'rationes',
+            accusative: 'rationes',
+            genitive: 'rationum',
+            dative: 'rationibus',
+            ablative: 'rationibus',
+          },
+        })
+      })
+
+      it('works with -or, -oris nouns', () => {
+        const nounObject = {
+          dictionaryForm: [ 'labor', 'oris', 'm.' ]
+        }
+        const declinated = thirdDeclension(nounObject)
+
+        expect(declinated).toEqual({
+          singular: {
+            nominative: 'labor',
+            accusative: 'laborem',
+            genitive: 'laboris',
+            dative: 'labori',
+            ablative: 'labore',
+          },
+          plural: {
+            nominative: 'labores',
+            accusative: 'labores',
+            genitive: 'laborum',
+            dative: 'laboribus',
+            ablative: 'laboribus',
+          },
+        })
       })
     })
   })
